@@ -10,7 +10,7 @@ pipeline {
     }
     
     stages {
-        stage('GIT NEW CHECKOUT') {
+        stage('GIT CHECKOUT') {
             steps {
                git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/VM2322/Boardgame.git'
             }
@@ -82,7 +82,7 @@ pipeline {
             
         stage('DOCKER DEPLOYMENT') {
             steps {
-                sh "docker run -d -p 8090:8080 VM2322/gaming:latest"
+                sh "docker run -d -p 8070:8080 VM2322/gaming:latest"
             }
         }   
     }
